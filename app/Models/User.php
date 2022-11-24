@@ -19,6 +19,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'surname',
+        'description',
         'email',
         'password',
     ];
@@ -32,6 +34,11 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    // Relación de uno a muchos.
+    public function posts() {
+        return $this->hasMany('App\Models\Post');
+    }
 
     /**
      * The attributes that should be cast.
